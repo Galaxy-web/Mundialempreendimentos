@@ -1,0 +1,378 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    padding: 0 20px; /* Isso remove o espaçamento dos lados da página */
+}
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    background-color: #77f7b5;
+    color: #fff;
+}
+
+header img {
+    width: 200px;
+    height: 190px;
+    top: -30px;
+    position: absolute;
+    left: 100%; /*move a logo para o lado esquerdo da página */
+    transform: translateX(-375%); /*centraliza horizontalmente */
+}
+
+.menu {
+    list-style: none;
+    display: flex;
+}
+
+.menu li {
+    margin-left: 20px;
+}
+
+.menu a {
+    text-decoration: none;
+    color: #ffffff;
+    font-weight: bold;
+}
+
+.banner {
+    background-image: url("../fotos/hipoteca-3.jpg");
+    background-size: cover;
+    background-position: center;
+    height: 400px;
+    padding-top: 20px; /* Ajuste o valor conforme necessário para afastar o texto */
+    text-align: center; /* Centraliza o texto horizontalmente */
+    color: white;
+}
+
+.banner h1 {
+    color: #ffffff;
+    font-size: 50px;
+    text-align: center;
+    margin-top: 150px;
+    top: 20px;
+}
+
+.main {
+    padding: 40px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.cards-section {
+    width: calc((100% - 60px) / 2); /* Largura calculada para caber até duas seções por linha */
+    margin-bottom: 30px; /* Espaço inferior para o rodapé */
+    min-height: 300px; /* Altura mínima para acomodar os imóveis */
+    max-height: calc(100vh - 400px); /* Altura máxima para garantir a rolagem se necessário */
+    margin: 0 auto; /* Centraliza horizontalmente */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Adiciona transição suave */
+    position: relative;
+    perspective: 1000px; /* Adiciona perspectiva para transformações 3D */
+}
+
+.cards-section:hover {
+    transform: translateY(-5px) rotateX(5deg); /* Move a seção para cima e rotaciona ligeiramente ao passar o mouse */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3); /* Adiciona sombra ao passar o mouse */
+}
+
+.imovel {
+    width: 100%;
+    position: relative;
+    border: 1px solid #ccc;
+    border-radius: 31px; 
+    padding: 10px;
+    margin-bottom: 20px;
+    background-color: #f9f9f9;
+    text-align: center;
+    transition: transform 0.3s ease; /* Adiciona transição suave */
+    transform-style: preserve-3d; /* Mantém a posição dos elementos filhos durante transformações 3D */
+}
+
+.imovel:hover {
+    transform: translateY(-5px) rotateX(-5deg); /* Move o imóvel para cima e rotaciona ligeiramente ao passar o mouse */
+}
+
+
+
+.imovel h3 {
+    font-family: "Nome da Fonte", sans-serif; /* Substitua "Nome da Fonte" pela fonte desejada */
+    color: #333;
+    margin-top: 0;
+}
+
+.imovel p {
+    font-size: 16px;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.slideshow-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    max-width: 100%;
+    overflow: hidden;
+    margin-top: 10px;
+}
+
+.mySlides {
+    display: none;
+}
+
+.prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    padding: 16px;
+    margin-top: -22px;
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+}
+
+.prev {
+    left: 0;
+    border-radius: 3px 0 0 3px;
+}
+
+.next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+}
+
+.prev:hover, .next:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.fade {
+    animation-name: fade;
+    animation-duration: 1.5s;
+}
+
+@keyframes fade {
+    from {opacity: .4}
+    to {opacity: 1}
+}
+
+.btn-excluir {
+    background-color: #00af23;
+    border: none;
+    color: white;
+    padding: 8px 16px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin-top: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.btn-excluir:hover {
+    background-color: #00db2c;
+}
+
+
+
+/* Estilos para o slideshow de imagens */
+.imovel {
+    position: relative;
+    overflow: hidden;
+}
+
+.slideshow-container {
+    position: relative;
+    width: 100%;
+    max-width: 100%;
+}
+
+.slideshow-container img {
+    width: 100%;
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+.slideshow-container .prev, .slideshow-container .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: auto;
+    padding: 16px;
+    background-color: rgba(0, 0, 0, 0.3);
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    transition: background-color 0.3s ease;
+}
+
+.slideshow-container .next {
+    right: 0;
+}
+
+.slideshow-container .prev:hover, .slideshow-container .next:hover {
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+/* Adaptações para telas menores */
+@media screen and (max-width: 768px) {
+    .slideshow-container .prev, .slideshow-container .next {
+        font-size: 14px;
+    }
+}
+
+
+/* Estilos para o botão Adicionar */
+.btn-adicionar {
+position: fixed;
+bottom: 20px;
+right: 20px;
+padding: 10px 20px;
+background-color: #007bff;
+color: #fff;
+border: none;
+border-radius: 5px;
+cursor: pointer;
+}
+
+/* Estilos para o pop-up */
+.modal {
+    display: none; /* Por padrão, o pop-up está oculto */
+    position: fixed;
+    z-index: 9999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Fundo escuro translúcido */
+    overflow: auto;
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 10% auto; /* Centralizar o pop-up verticalmente */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3); /* Sombra suave */
+    max-width: 600px;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Efeito de fundo escurecido ao abrir o pop-up */
+body.modal-open {
+    overflow: hidden; /* Impede a rolagem da página de fundo */
+}
+
+/* Estilo para o formulário dentro do pop-up */
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+input[type="text"],
+input[type="number"],
+input[type="file"],
+button[type="submit"] {
+    margin-bottom: 15px;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+input[type="file"] {
+    cursor: pointer; /* Altera o cursor ao passar por cima */
+}
+
+button[type="submit"] {
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+/* Estilos para o carrossel de fotos */
+.carousel {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.carousel img {
+    width: 100px; /* Tamanho das imagens do carrossel */
+    height: 100px;
+    margin: 5px; /* Espaçamento entre as imagens */
+    object-fit: cover;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    transition: transform 0.3s ease;
+}
+
+.carousel img:hover {
+    transform: scale(1.1); /* Efeito de zoom ao passar o mouse */
+}
+
+.footer {
+    padding: 20px;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+}
+
+@media (max-width: 768px) {
+    .menu {
+        display: none;
+    }
+
+    .filter {
+        flex-direction: column;
+    }
+
+    .filter select {
+        margin-bottom: 10px;
+    }
+
+    .cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    .cards {
+        grid-template-columns: 1fr;
+    }
+}
